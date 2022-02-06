@@ -6,6 +6,11 @@ HTML body {
   background: #353D40;
 }
 
+p {
+  margin: 20px;
+  align-items: stretch;
+}
+
 .container {
   user-select: none;
   margin: 80px auto;
@@ -64,7 +69,6 @@ HTML body {
   color: #353D40;
   text-decoration: none;
 }
-
 
 .container i {
   padding-left: 20px;
