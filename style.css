@@ -3,23 +3,22 @@
 
 HTML body {
   font-family: Montserrat, sans-serif;
-  background: #b3b8cd;
-  background-size: cover;
+  background: #353D40;
 }
 
 .container {
   user-select: none;
-  margin: 100px auto;
-  background: #231e39;
-  color: #b3b8cd;
-  border-radius: 5px;
+  margin: 80px auto;
+  background: #003F63;
+  color: #D9D9D9;
   width: 350px;
   text-align: center;
   box-shadow: 0 10px 20px -10px rgba(0, 0, 0, .75);
+  border-radius: 5px;
 }
 
 .cover-photo {
-  background: url(https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80);
+  background: url("https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80");
   height: 160px;
   width: 100%;
   border-radius: 5px 5px 0 0;
@@ -30,9 +29,9 @@ HTML body {
   width: 120px;
   border-radius: 50%;
   margin: 93px 0 0 -175px;
-  border: 1px solid #1f1a32;
+  border: 1px solid #00324e;
   padding: 7px;
-  background: #292343;
+  background: #003F63;
 }
 
 .profile-name {
@@ -46,45 +45,23 @@ HTML body {
   line-height: 21px;
 }
 
-button {
-  margin: 10px 0 40px 0;
-}
-
-.download-btn {
-  background: #03bfbc;
-  border: 1px solid #03bfbc;
-  padding: 10px 25px;
-  color: #231e39;
-  border-radius: 3px;
-  font-family: Montserrat, sans-serif;
-  margin-left: 10px;
-  background: transparent;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-
-.download-btn:hover {
-  color: #000;
-  background-color: #03bfbc;
-}
-
 .container a:link {
-  color: #b3b8cd;
+  color: #D9D9D9;
   text-decoration: none;
 }
 
 .container a:visited {
-  color: #b3b8cd;
+  color: #D9D9D9;
   text-decoration: none;
 }
 
 .container a:hover {
-  color: #000;
+  color: #353D40;
   text-decoration: none;
 }
 
 .container a:active {
-  color: #000;
+  color: #353D40;
   text-decoration: none;
 }
 
@@ -98,5 +75,5 @@ button {
 }
 
 .container i:hover {
-  color: #03bfbc;
+  color: #F2B138;
 }
