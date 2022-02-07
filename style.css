@@ -50,34 +50,42 @@ p {
   line-height: 21px;
 }
 
-.container a:link {
+a {
+  justify-content: center;
+}
+
+a:link {
   color: #D9D9D9;
   text-decoration: none;
 }
 
-.container a:visited {
+a:visited {
   color: #D9D9D9;
   text-decoration: none;
 }
 
-.container a:hover {
+a:hover {
   color: #353D40;
   text-decoration: none;
 }
 
-.container a:active {
+a:active {
   color: #353D40;
   text-decoration: none;
 }
 
-.container i {
-  padding-left: 20px;
+i {
+  padding: 15px;
   font-size: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   cursor: pointer;
   transition: .5s;
 }
 
-.container i:hover {
+i:hover {
   color: #F2B138;
+}
+
+.social-media {
+  justify-content: center;
 }
