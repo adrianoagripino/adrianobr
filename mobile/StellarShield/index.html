@@ -57,6 +57,29 @@
     nav a { color: #b8c7d6; font-size: 13px; transition: color .2s; }
     nav a:hover, nav a:focus-visible { color: var(--blue); }
 
+    .language-picker {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-left: 8px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .language-picker select {
+      max-width: 145px;
+      padding: 8px 30px 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #071426;
+      color: var(--white);
+      font: inherit;
+      cursor: pointer;
+    }
+
+    html[dir="rtl"] .language-picker { margin-right: 8px; margin-left: 0; }
+    html[dir="rtl"] .label { border-right: 2px solid var(--blue); border-left: 0; }
+
     .mark {
       position: relative;
       display: inline-grid;
@@ -337,7 +360,8 @@
     }
 
     @media (max-width: 850px) {
-      nav { display: none; }
+      nav { gap: 12px; }
+      nav > a { display: none; }
       .hero { grid-template-columns: 1fr; padding-top: 138px; text-align: center; }
       .eyebrow, .actions, .facts { justify-content: center; }
       .lead { margin-left: auto; margin-right: auto; }
@@ -365,10 +389,25 @@
 <body>
   <header class="header">
     <a class="brand" href="#inicio" aria-label="Stellar Shield — início"><span class="mark" aria-hidden="true"></span><span>STELLAR <strong>SHIELD</strong></span></a>
-    <nav aria-label="Navegação principal">
-      <a href="#jogo">O jogo</a>
-      <a href="#recursos">Recursos</a>
-      <a href="#privacidade">Privacidade</a>
+    <nav id="main-nav" aria-label="Navegação principal">
+      <a href="#jogo" data-i18n="navGame">O jogo</a>
+      <a href="#recursos" data-i18n="navFeatures">Recursos</a>
+      <a href="#privacidade" data-i18n="navPrivacy">Privacidade</a>
+      <label class="language-picker">
+        <span data-i18n="language">Idioma</span>
+        <select id="language-select" aria-label="Idioma">
+          <option value="pt-BR">Português</option>
+          <option value="en">English</option>
+          <option value="zh-CN">简体中文</option>
+          <option value="hi">हिन्दी</option>
+          <option value="es">Español</option>
+          <option value="ar">العربية</option>
+          <option value="fr">Français</option>
+          <option value="bn">বাংলা</option>
+          <option value="id">Bahasa Indonesia</option>
+          <option value="ur">اردو</option>
+        </select>
+      </label>
     </nav>
   </header>
 
@@ -376,17 +415,17 @@
     <section class="hero" id="inicio">
       <div class="stars" aria-hidden="true"></div>
       <div class="hero-copy">
-        <p class="eyebrow">Defesa espacial • Android</p>
-        <h1>O núcleo é a<br><em>última esperança.</em></h1>
-        <p class="lead">Proteja a energia estelar, domine o escudo e sobreviva a ondas cada vez mais intensas.</p>
+        <p class="eyebrow" data-i18n="eyebrow">Defesa espacial • Android</p>
+        <h1><span data-i18n="headlineOne">O núcleo é a</span><br><em data-i18n="headlineTwo">última esperança.</em></h1>
+        <p class="lead" data-i18n="lead">Proteja a energia estelar, domine o escudo e sobreviva a ondas cada vez mais intensas.</p>
         <div class="actions">
-          <a class="button" href="#jogo">Conheça o jogo <span aria-hidden="true">↓</span></a>
-          <span class="status">▶ &nbsp; Em breve na Google Play</span>
+          <a class="button" href="#jogo"><span data-i18n="cta">Conheça o jogo</span> <span aria-hidden="true">↓</span></a>
+          <span class="status">▶ &nbsp; <span data-i18n="soon">Em breve na Google Play</span></span>
         </div>
         <ul class="facts" aria-label="Destaques">
-          <li><strong>3</strong><span>modos de jogo</span></li>
-          <li><strong>10</strong><span>idiomas</span></li>
-          <li><strong>∞</strong><span>ondas no infinito</span></li>
+          <li><strong>3</strong><span data-i18n="gameModes">modos de jogo</span></li>
+          <li><strong>10</strong><span data-i18n="languages">idiomas</span></li>
+          <li><strong>∞</strong><span data-i18n="endlessWaves">ondas no infinito</span></li>
         </ul>
       </div>
 
@@ -395,44 +434,261 @@
         <div class="orbit middle"></div>
         <div class="shield"></div>
         <div class="core"></div>
-        <div class="label top"><small>ENERGIA DO NÚCLEO</small><strong>100%</strong></div>
-        <div class="label bottom"><small>ESCUDO</small><strong>ATIVO</strong></div>
+        <div class="label top"><small data-i18n="coreEnergy">ENERGIA DO NÚCLEO</small><strong>100%</strong></div>
+        <div class="label bottom"><small data-i18n="shield">ESCUDO</small><strong data-i18n="active">ATIVO</strong></div>
       </div>
     </section>
 
     <section class="intro" id="jogo">
-      <p class="index">01 / O JOGO</p>
+      <p class="index" data-i18n="gameSection">01 / O JOGO</p>
       <div>
-        <h2>Simples de aprender.<br>Difícil de abandonar.</h2>
-        <p class="description">Stellar Shield transforma um único gesto em uma batalha de precisão. Arraste para posicionar o escudo, bloqueie projéteis, crie combos e prepare-se para o Guardião do Vazio.</p>
+        <h2><span data-i18n="easy">Simples de aprender.</span><br><span data-i18n="hard">Difícil de abandonar.</span></h2>
+        <p class="description" data-i18n="gameDescription">Stellar Shield transforma um único gesto em uma batalha de precisão. Arraste para posicionar o escudo, bloqueie projéteis, crie combos e prepare-se para o Guardião do Vazio.</p>
       </div>
     </section>
 
     <section class="features" id="recursos">
-      <article><span>01</span><h3>Defesa em tempo real</h3><p>Gire o escudo ao redor do núcleo, antecipe as trajetórias e bloqueie cada impacto.</p></article>
-      <article><span>02</span><h3>Evolução permanente</h3><p>Ganhe fragmentos, melhore o núcleo e desbloqueie novos estilos para sua defesa.</p></article>
-      <article><span>03</span><h3>Desafios variados</h3><p>Enfrente chefes, cumpra missões diárias e domine os modos Campanha, Infinito e Blitz.</p></article>
+      <article><span>01</span><h3 data-i18n="featureOneTitle">Defesa em tempo real</h3><p data-i18n="featureOneText">Gire o escudo ao redor do núcleo, antecipe as trajetórias e bloqueie cada impacto.</p></article>
+      <article><span>02</span><h3 data-i18n="featureTwoTitle">Evolução permanente</h3><p data-i18n="featureTwoText">Ganhe fragmentos, melhore o núcleo e desbloqueie novos estilos para sua defesa.</p></article>
+      <article><span>03</span><h3 data-i18n="featureThreeTitle">Desafios variados</h3><p data-i18n="featureThreeText">Enfrente chefes, cumpra missões diárias e domine os modos Campanha, Infinito e Blitz.</p></article>
     </section>
 
     <section class="modes">
-      <div><p class="index">02 / SUA MISSÃO</p><h2>Escolha como<br>defender a galáxia.</h2></div>
+      <div><p class="index" data-i18n="missionSection">02 / SUA MISSÃO</p><h2><span data-i18n="chooseHow">Escolha como</span><br><span data-i18n="defendGalaxy">defender a galáxia.</span></h2></div>
       <div class="mode-list">
-        <div><strong>Campanha</strong><span>Dez ondas até a vitória final</span></div>
-        <div><strong>Infinito</strong><span>Resista enquanto conseguir</span></div>
-        <div><strong>Blitz</strong><span>Noventa segundos de intensidade</span></div>
+        <div><strong data-i18n="campaign">Campanha</strong><span data-i18n="campaignText">Dez ondas até a vitória final</span></div>
+        <div><strong data-i18n="infinite">Infinito</strong><span data-i18n="infiniteText">Resista enquanto conseguir</span></div>
+        <div><strong>Blitz</strong><span data-i18n="blitzText">Noventa segundos de intensidade</span></div>
       </div>
     </section>
 
     <section class="privacy" id="privacidade">
-      <div><p class="index">TRANSPARÊNCIA</p><h2>Você controla sua experiência.</h2></div>
-      <p>Música, efeitos e vibração são opcionais. Anúncios recompensados só aparecem quando você escolhe assistir, e as opções de consentimento podem ser revistas nas configurações do jogo.</p>
+      <div><p class="index" data-i18n="transparency">TRANSPARÊNCIA</p><h2 data-i18n="privacyTitle">Você controla sua experiência.</h2></div>
+      <p data-i18n="privacyText">Música, efeitos e vibração são opcionais. Anúncios recompensados só aparecem quando você escolhe assistir, e as opções de consentimento podem ser revistas nas configurações do jogo.</p>
     </section>
   </main>
 
   <footer>
     <a class="brand" href="#inicio"><span class="mark" aria-hidden="true"></span><span>STELLAR <strong>SHIELD</strong></span></a>
-    <p>© 2026 Stellar Shield. Todos os direitos reservados.</p>
-    <a href="#privacidade">Privacidade</a>
+    <p data-i18n="copyright">© 2026 Stellar Shield. Todos os direitos reservados.</p>
+    <a href="#privacidade" data-i18n="navPrivacy">Privacidade</a>
   </footer>
+  <script>
+    const translations = {
+      "pt-BR": {
+        language: "Idioma", navGame: "O jogo", navFeatures: "Recursos", navPrivacy: "Privacidade",
+        eyebrow: "Defesa espacial • Android", headlineOne: "O núcleo é a", headlineTwo: "última esperança.",
+        lead: "Proteja a energia estelar, domine o escudo e sobreviva a ondas cada vez mais intensas.",
+        cta: "Conheça o jogo", soon: "Em breve na Google Play", gameModes: "modos de jogo",
+        languages: "idiomas", endlessWaves: "ondas no infinito", coreEnergy: "ENERGIA DO NÚCLEO",
+        shield: "ESCUDO", active: "ATIVO", gameSection: "01 / O JOGO", easy: "Simples de aprender.",
+        hard: "Difícil de abandonar.", gameDescription: "Stellar Shield transforma um único gesto em uma batalha de precisão. Arraste para posicionar o escudo, bloqueie projéteis, crie combos e prepare-se para o Guardião do Vazio.",
+        featureOneTitle: "Defesa em tempo real", featureOneText: "Gire o escudo ao redor do núcleo, antecipe as trajetórias e bloqueie cada impacto.",
+        featureTwoTitle: "Evolução permanente", featureTwoText: "Ganhe fragmentos, melhore o núcleo e desbloqueie novos estilos para sua defesa.",
+        featureThreeTitle: "Desafios variados", featureThreeText: "Enfrente chefes, cumpra missões diárias e domine os modos Campanha, Infinito e Blitz.",
+        missionSection: "02 / SUA MISSÃO", chooseHow: "Escolha como", defendGalaxy: "defender a galáxia.",
+        campaign: "Campanha", campaignText: "Dez ondas até a vitória final", infinite: "Infinito",
+        infiniteText: "Resista enquanto conseguir", blitzText: "Noventa segundos de intensidade",
+        transparency: "TRANSPARÊNCIA", privacyTitle: "Você controla sua experiência.",
+        privacyText: "Música, efeitos e vibração são opcionais. Anúncios recompensados só aparecem quando você escolhe assistir, e as opções de consentimento podem ser revistas nas configurações do jogo.",
+        copyright: "© 2026 Stellar Shield. Todos os direitos reservados."
+      },
+      en: {
+        language: "Language", navGame: "The game", navFeatures: "Features", navPrivacy: "Privacy",
+        eyebrow: "Space defense • Android", headlineOne: "The core is the", headlineTwo: "last hope.",
+        lead: "Protect the stellar energy, master the shield, and survive increasingly intense waves.",
+        cta: "Discover the game", soon: "Coming soon to Google Play", gameModes: "game modes",
+        languages: "languages", endlessWaves: "endless waves", coreEnergy: "CORE ENERGY",
+        shield: "SHIELD", active: "ACTIVE", gameSection: "01 / THE GAME", easy: "Easy to learn.",
+        hard: "Hard to put down.", gameDescription: "Stellar Shield turns a single gesture into a battle of precision. Drag to position the shield, block projectiles, build combos, and prepare for the Void Guardian.",
+        featureOneTitle: "Real-time defense", featureOneText: "Rotate the shield around the core, anticipate trajectories, and block every impact.",
+        featureTwoTitle: "Permanent progression", featureTwoText: "Earn fragments, upgrade the core, and unlock new styles for your defense.",
+        featureThreeTitle: "Varied challenges", featureThreeText: "Face bosses, complete daily missions, and master Campaign, Infinite, and Blitz modes.",
+        missionSection: "02 / YOUR MISSION", chooseHow: "Choose how to", defendGalaxy: "defend the galaxy.",
+        campaign: "Campaign", campaignText: "Ten waves until the final victory", infinite: "Infinite",
+        infiniteText: "Hold out for as long as you can", blitzText: "Ninety seconds of intensity",
+        transparency: "TRANSPARENCY", privacyTitle: "You control your experience.",
+        privacyText: "Music, sound effects, and vibration are optional. Rewarded ads only appear when you choose to watch, and consent options can be reviewed in the game settings.",
+        copyright: "© 2026 Stellar Shield. All rights reserved."
+      },
+      "zh-CN": {
+        language: "语言", navGame: "游戏", navFeatures: "特色", navPrivacy: "隐私",
+        eyebrow: "太空防御 • Android", headlineOne: "核心是", headlineTwo: "最后的希望。",
+        lead: "保护恒星能量，掌控护盾，在越来越猛烈的攻势中生存。",
+        cta: "了解游戏", soon: "即将登陆 Google Play", gameModes: "游戏模式",
+        languages: "种语言", endlessWaves: "无限波次", coreEnergy: "核心能量",
+        shield: "护盾", active: "已激活", gameSection: "01 / 游戏", easy: "容易上手。",
+        hard: "难以放下。", gameDescription: "Stellar Shield 将一个简单手势变成精准之战。拖动护盾、阻挡投射物、累积连击，并准备迎战虚空守卫。",
+        featureOneTitle: "实时防御", featureOneText: "围绕核心旋转护盾，预判轨迹并阻挡每次冲击。",
+        featureTwoTitle: "永久成长", featureTwoText: "收集碎片、升级核心并解锁全新的防御外观。",
+        featureThreeTitle: "多样挑战", featureThreeText: "挑战首领、完成每日任务，征服战役、无限和闪电模式。",
+        missionSection: "02 / 你的任务", chooseHow: "选择如何", defendGalaxy: "保卫银河系。",
+        campaign: "战役", campaignText: "通过十个波次赢得最终胜利", infinite: "无限",
+        infiniteText: "尽可能坚持下去", blitzText: "九十秒高强度挑战",
+        transparency: "透明度", privacyTitle: "你的体验由你掌控。",
+        privacyText: "音乐、音效和振动均可关闭。奖励广告只会在你主动选择时出现，且可在游戏设置中重新查看同意选项。",
+        copyright: "© 2026 Stellar Shield。保留所有权利。"
+      },
+      hi: {
+        language: "भाषा", navGame: "खेल", navFeatures: "विशेषताएँ", navPrivacy: "गोपनीयता",
+        eyebrow: "अंतरिक्ष रक्षा • Android", headlineOne: "कोर है", headlineTwo: "अंतिम आशा।",
+        lead: "तारकीय ऊर्जा की रक्षा करें, शील्ड पर नियंत्रण पाएँ और लगातार तीव्र होती लहरों से बचें।",
+        cta: "खेल जानें", soon: "जल्द Google Play पर", gameModes: "गेम मोड",
+        languages: "भाषाएँ", endlessWaves: "अनंत लहरें", coreEnergy: "कोर ऊर्जा",
+        shield: "शील्ड", active: "सक्रिय", gameSection: "01 / खेल", easy: "सीखना आसान।",
+        hard: "छोड़ना मुश्किल।", gameDescription: "Stellar Shield एक सरल इशारे को सटीकता की लड़ाई में बदल देता है। शील्ड को खींचें, प्रोजेक्टाइल रोकें, कॉम्बो बनाएँ और Void Guardian का सामना करें।",
+        featureOneTitle: "रीयल-टाइम रक्षा", featureOneText: "कोर के चारों ओर शील्ड घुमाएँ, दिशा का अनुमान लगाएँ और हर प्रहार रोकें।",
+        featureTwoTitle: "स्थायी प्रगति", featureTwoText: "फ्रैगमेंट कमाएँ, कोर सुधारें और रक्षा की नई शैलियाँ अनलॉक करें।",
+        featureThreeTitle: "विविध चुनौतियाँ", featureThreeText: "बॉस से लड़ें, दैनिक मिशन पूरे करें और Campaign, Infinite व Blitz मोड में महारत पाएँ।",
+        missionSection: "02 / आपका मिशन", chooseHow: "चुनें कि", defendGalaxy: "आकाशगंगा कैसे बचाएँ।",
+        campaign: "अभियान", campaignText: "अंतिम जीत तक दस लहरें", infinite: "अनंत",
+        infiniteText: "जितनी देर हो सके टिके रहें", blitzText: "नब्बे सेकंड की तीव्रता",
+        transparency: "पारदर्शिता", privacyTitle: "अनुभव आपके नियंत्रण में है।",
+        privacyText: "संगीत, ध्वनि प्रभाव और कंपन वैकल्पिक हैं। पुरस्कृत विज्ञापन केवल आपकी पसंद पर दिखते हैं और सहमति विकल्प गेम सेटिंग में दोबारा देखे जा सकते हैं।",
+        copyright: "© 2026 Stellar Shield. सर्वाधिकार सुरक्षित।"
+      },
+      es: {
+        language: "Idioma", navGame: "El juego", navFeatures: "Características", navPrivacy: "Privacidad",
+        eyebrow: "Defensa espacial • Android", headlineOne: "El núcleo es la", headlineTwo: "última esperanza.",
+        lead: "Protege la energía estelar, domina el escudo y sobrevive a oleadas cada vez más intensas.",
+        cta: "Conoce el juego", soon: "Próximamente en Google Play", gameModes: "modos de juego",
+        languages: "idiomas", endlessWaves: "oleadas infinitas", coreEnergy: "ENERGÍA DEL NÚCLEO",
+        shield: "ESCUDO", active: "ACTIVO", gameSection: "01 / EL JUEGO", easy: "Fácil de aprender.",
+        hard: "Difícil de soltar.", gameDescription: "Stellar Shield convierte un solo gesto en una batalla de precisión. Arrastra el escudo, bloquea proyectiles, crea combos y prepárate para el Guardián del Vacío.",
+        featureOneTitle: "Defensa en tiempo real", featureOneText: "Gira el escudo alrededor del núcleo, anticipa las trayectorias y bloquea cada impacto.",
+        featureTwoTitle: "Progreso permanente", featureTwoText: "Gana fragmentos, mejora el núcleo y desbloquea nuevos estilos de defensa.",
+        featureThreeTitle: "Desafíos variados", featureThreeText: "Enfrenta jefes, completa misiones diarias y domina Campaña, Infinito y Blitz.",
+        missionSection: "02 / TU MISIÓN", chooseHow: "Elige cómo", defendGalaxy: "defender la galaxia.",
+        campaign: "Campaña", campaignText: "Diez oleadas hasta la victoria final", infinite: "Infinito",
+        infiniteText: "Resiste todo lo que puedas", blitzText: "Noventa segundos de intensidad",
+        transparency: "TRANSPARENCIA", privacyTitle: "Tú controlas tu experiencia.",
+        privacyText: "La música, los efectos y la vibración son opcionales. Los anuncios recompensados solo aparecen cuando eliges verlos y puedes revisar el consentimiento en los ajustes.",
+        copyright: "© 2026 Stellar Shield. Todos los derechos reservados."
+      },
+      ar: {
+        language: "اللغة", navGame: "اللعبة", navFeatures: "الميزات", navPrivacy: "الخصوصية",
+        eyebrow: "دفاع فضائي • Android", headlineOne: "النواة هي", headlineTwo: "الأمل الأخير.",
+        lead: "احمِ الطاقة النجمية، أتقن الدرع واصمد أمام موجات تزداد شدة.",
+        cta: "اكتشف اللعبة", soon: "قريبًا على Google Play", gameModes: "أوضاع لعب",
+        languages: "لغات", endlessWaves: "موجات لا نهائية", coreEnergy: "طاقة النواة",
+        shield: "الدرع", active: "نشط", gameSection: "01 / اللعبة", easy: "سهلة التعلم.",
+        hard: "صعبة الترك.", gameDescription: "تحول Stellar Shield إيماءة واحدة إلى معركة دقة. حرّك الدرع، اصد المقذوفات، ابنِ سلاسل الضربات واستعد لحارس الفراغ.",
+        featureOneTitle: "دفاع في الوقت الحقيقي", featureOneText: "دوّر الدرع حول النواة، توقع المسارات واصد كل ضربة.",
+        featureTwoTitle: "تقدم دائم", featureTwoText: "اجمع الشظايا، طوّر النواة وافتح أنماطًا جديدة لدفاعك.",
+        featureThreeTitle: "تحديات متنوعة", featureThreeText: "واجه الزعماء، أكمل المهام اليومية وأتقن أوضاع الحملة واللانهائي وBlitz.",
+        missionSection: "02 / مهمتك", chooseHow: "اختر كيف", defendGalaxy: "تدافع عن المجرة.",
+        campaign: "الحملة", campaignText: "عشر موجات حتى النصر النهائي", infinite: "اللانهائي",
+        infiniteText: "اصمد لأطول وقت ممكن", blitzText: "تسعون ثانية من الحماس",
+        transparency: "الشفافية", privacyTitle: "أنت تتحكم في تجربتك.",
+        privacyText: "الموسيقى والمؤثرات والاهتزاز اختيارية. لا تظهر إعلانات المكافآت إلا عندما تختار مشاهدتها، ويمكن مراجعة الموافقة من إعدادات اللعبة.",
+        copyright: "© 2026 Stellar Shield. جميع الحقوق محفوظة."
+      },
+      fr: {
+        language: "Langue", navGame: "Le jeu", navFeatures: "Fonctionnalités", navPrivacy: "Confidentialité",
+        eyebrow: "Défense spatiale • Android", headlineOne: "Le noyau est le", headlineTwo: "dernier espoir.",
+        lead: "Protégez l’énergie stellaire, maîtrisez le bouclier et survivez à des vagues toujours plus intenses.",
+        cta: "Découvrir le jeu", soon: "Bientôt sur Google Play", gameModes: "modes de jeu",
+        languages: "langues", endlessWaves: "vagues infinies", coreEnergy: "ÉNERGIE DU NOYAU",
+        shield: "BOUCLIER", active: "ACTIF", gameSection: "01 / LE JEU", easy: "Facile à apprendre.",
+        hard: "Difficile à lâcher.", gameDescription: "Stellar Shield transforme un geste en combat de précision. Déplacez le bouclier, bloquez les projectiles, enchaînez les combos et affrontez le Gardien du Vide.",
+        featureOneTitle: "Défense en temps réel", featureOneText: "Faites tourner le bouclier autour du noyau, anticipez les trajectoires et bloquez chaque impact.",
+        featureTwoTitle: "Progression permanente", featureTwoText: "Gagnez des fragments, améliorez le noyau et débloquez de nouveaux styles.",
+        featureThreeTitle: "Défis variés", featureThreeText: "Affrontez des boss, accomplissez des missions quotidiennes et maîtrisez Campagne, Infini et Blitz.",
+        missionSection: "02 / VOTRE MISSION", chooseHow: "Choisissez comment", defendGalaxy: "défendre la galaxie.",
+        campaign: "Campagne", campaignText: "Dix vagues avant la victoire finale", infinite: "Infini",
+        infiniteText: "Tenez aussi longtemps que possible", blitzText: "Quatre-vingt-dix secondes d’intensité",
+        transparency: "TRANSPARENCE", privacyTitle: "Vous contrôlez votre expérience.",
+        privacyText: "Musique, effets sonores et vibrations sont facultatifs. Les annonces récompensées n’apparaissent que si vous choisissez de les regarder et le consentement reste modifiable.",
+        copyright: "© 2026 Stellar Shield. Tous droits réservés."
+      },
+      bn: {
+        language: "ভাষা", navGame: "গেম", navFeatures: "বৈশিষ্ট্য", navPrivacy: "গোপনীয়তা",
+        eyebrow: "মহাকাশ প্রতিরক্ষা • Android", headlineOne: "কোরই হলো", headlineTwo: "শেষ আশা।",
+        lead: "নাক্ষত্রিক শক্তি রক্ষা করুন, শিল্ড নিয়ন্ত্রণ করুন এবং ক্রমশ তীব্র ঢেউ থেকে বাঁচুন।",
+        cta: "গেমটি জানুন", soon: "শীঘ্রই Google Play-এ", gameModes: "গেম মোড",
+        languages: "ভাষা", endlessWaves: "অসীম ঢেউ", coreEnergy: "কোর শক্তি",
+        shield: "শিল্ড", active: "সক্রিয়", gameSection: "01 / গেম", easy: "শেখা সহজ।",
+        hard: "ছাড়া কঠিন।", gameDescription: "Stellar Shield একটি সহজ ইশারাকে নির্ভুলতার যুদ্ধে বদলে দেয়। শিল্ড সরান, প্রজেক্টাইল আটকান, কম্বো গড়ুন এবং Void Guardian-এর জন্য প্রস্তুত হন।",
+        featureOneTitle: "রিয়েল-টাইম প্রতিরক্ষা", featureOneText: "কোরের চারপাশে শিল্ড ঘোরান, গতিপথ অনুমান করুন এবং প্রতিটি আঘাত আটকান।",
+        featureTwoTitle: "স্থায়ী অগ্রগতি", featureTwoText: "ফ্র্যাগমেন্ট অর্জন করুন, কোর উন্নত করুন এবং নতুন প্রতিরক্ষা স্টাইল আনলক করুন।",
+        featureThreeTitle: "বিভিন্ন চ্যালেঞ্জ", featureThreeText: "বসের মুখোমুখি হন, দৈনিক মিশন শেষ করুন এবং Campaign, Infinite ও Blitz আয়ত্ত করুন।",
+        missionSection: "02 / আপনার মিশন", chooseHow: "বেছে নিন কীভাবে", defendGalaxy: "গ্যালাক্সি রক্ষা করবেন।",
+        campaign: "ক্যাম্পেইন", campaignText: "চূড়ান্ত জয়ের আগে দশটি ঢেউ", infinite: "ইনফিনিট",
+        infiniteText: "যতক্ষণ সম্ভব টিকে থাকুন", blitzText: "নব্বই সেকেন্ডের তীব্রতা",
+        transparency: "স্বচ্ছতা", privacyTitle: "অভিজ্ঞতা আপনার নিয়ন্ত্রণে।",
+        privacyText: "সঙ্গীত, শব্দ প্রভাব ও কম্পন ঐচ্ছিক। আপনি চাইলে তবেই পুরস্কার বিজ্ঞাপন দেখানো হয় এবং গেম সেটিংসে সম্মতির বিকল্প পুনরায় দেখা যায়।",
+        copyright: "© 2026 Stellar Shield. সর্বস্বত্ব সংরক্ষিত।"
+      },
+      id: {
+        language: "Bahasa", navGame: "Game", navFeatures: "Fitur", navPrivacy: "Privasi",
+        eyebrow: "Pertahanan luar angkasa • Android", headlineOne: "Inti adalah", headlineTwo: "harapan terakhir.",
+        lead: "Lindungi energi bintang, kuasai perisai, dan bertahan dari gelombang yang semakin intens.",
+        cta: "Kenali gamenya", soon: "Segera di Google Play", gameModes: "mode game",
+        languages: "bahasa", endlessWaves: "gelombang tanpa akhir", coreEnergy: "ENERGI INTI",
+        shield: "PERISAI", active: "AKTIF", gameSection: "01 / GAME", easy: "Mudah dipelajari.",
+        hard: "Sulit ditinggalkan.", gameDescription: "Stellar Shield mengubah satu gerakan menjadi pertarungan presisi. Geser perisai, blokir proyektil, bangun kombo, dan bersiap menghadapi Void Guardian.",
+        featureOneTitle: "Pertahanan real-time", featureOneText: "Putar perisai mengelilingi inti, antisipasi lintasan, dan blokir setiap benturan.",
+        featureTwoTitle: "Progres permanen", featureTwoText: "Raih fragmen, tingkatkan inti, dan buka gaya baru untuk pertahananmu.",
+        featureThreeTitle: "Tantangan beragam", featureThreeText: "Hadapi bos, selesaikan misi harian, dan kuasai Campaign, Infinite, serta Blitz.",
+        missionSection: "02 / MISIMU", chooseHow: "Pilih cara", defendGalaxy: "mempertahankan galaksi.",
+        campaign: "Campaign", campaignText: "Sepuluh gelombang menuju kemenangan akhir", infinite: "Infinite",
+        infiniteText: "Bertahan selama mungkin", blitzText: "Sembilan puluh detik penuh intensitas",
+        transparency: "TRANSPARANSI", privacyTitle: "Kamu mengendalikan pengalamanmu.",
+        privacyText: "Musik, efek suara, dan getaran bersifat opsional. Iklan berhadiah hanya muncul saat kamu memilih menontonnya dan opsi persetujuan dapat ditinjau di pengaturan.",
+        copyright: "© 2026 Stellar Shield. Hak cipta dilindungi."
+      },
+      ur: {
+        language: "زبان", navGame: "گیم", navFeatures: "خصوصیات", navPrivacy: "رازداری",
+        eyebrow: "خلائی دفاع • Android", headlineOne: "کور ہے", headlineTwo: "آخری امید۔",
+        lead: "ستاروں کی توانائی کی حفاظت کریں، شیلڈ پر قابو پائیں اور بڑھتی ہوئی لہروں سے بچیں۔",
+        cta: "گیم جانیں", soon: "جلد Google Play پر", gameModes: "گیم موڈز",
+        languages: "زبانیں", endlessWaves: "لامحدود لہریں", coreEnergy: "کور کی توانائی",
+        shield: "شیلڈ", active: "فعال", gameSection: "01 / گیم", easy: "سیکھنا آسان۔",
+        hard: "چھوڑنا مشکل۔", gameDescription: "Stellar Shield ایک اشارے کو درستگی کی جنگ میں بدل دیتا ہے۔ شیلڈ کو حرکت دیں، پروجیکٹائل روکیں، کومبو بنائیں اور Void Guardian کا سامنا کریں۔",
+        featureOneTitle: "ریئل ٹائم دفاع", featureOneText: "کور کے گرد شیلڈ گھمائیں، راستوں کا اندازہ لگائیں اور ہر ضرب روکیں۔",
+        featureTwoTitle: "مستقل ترقی", featureTwoText: "فریگمنٹ حاصل کریں، کور بہتر بنائیں اور دفاع کے نئے انداز کھولیں۔",
+        featureThreeTitle: "مختلف چیلنجز", featureThreeText: "باسز کا سامنا کریں، روزانہ مشن مکمل کریں اور Campaign، Infinite اور Blitz میں مہارت حاصل کریں۔",
+        missionSection: "02 / آپ کا مشن", chooseHow: "منتخب کریں کہ", defendGalaxy: "کہکشاں کا دفاع کیسے کریں۔",
+        campaign: "کیمپین", campaignText: "آخری فتح تک دس لہریں", infinite: "لامحدود",
+        infiniteText: "جتنی دیر ہو سکے مقابلہ کریں", blitzText: "نوے سیکنڈ کی شدت",
+        transparency: "شفافیت", privacyTitle: "تجربہ آپ کے اختیار میں ہے۔",
+        privacyText: "موسیقی، صوتی اثرات اور وائبریشن اختیاری ہیں۔ انعامی اشتہارات صرف آپ کی مرضی سے دکھتے ہیں اور رضامندی کی ترتیبات دوبارہ دیکھی جا سکتی ہیں۔",
+        copyright: "© 2026 Stellar Shield. جملہ حقوق محفوظ ہیں۔"
+      }
+    };
+
+    const supportedLanguages = Object.keys(translations);
+    const rtlLanguages = new Set(["ar", "ur"]);
+    const selector = document.getElementById("language-select");
+
+    function resolveLanguage(value) {
+      if (!value) return "pt-BR";
+      const normalized = value.toLowerCase();
+      return supportedLanguages.find((tag) => tag.toLowerCase() === normalized)
+        || supportedLanguages.find((tag) => normalized.startsWith(tag.toLowerCase().split("-")[0]))
+        || "pt-BR";
+    }
+
+    function applyLanguage(tag, persist = true) {
+      const language = resolveLanguage(tag);
+      const dictionary = translations[language];
+      document.documentElement.lang = language;
+      document.documentElement.dir = rtlLanguages.has(language) ? "rtl" : "ltr";
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+        if (dictionary[key]) element.textContent = dictionary[key];
+      });
+      selector.value = language;
+      selector.setAttribute("aria-label", dictionary.language);
+      if (persist) {
+        try { localStorage.setItem("stellar-shield-language", language); } catch (_) {}
+      }
+    }
+
+    let initialLanguage;
+    try { initialLanguage = localStorage.getItem("stellar-shield-language"); } catch (_) {}
+    applyLanguage(initialLanguage || navigator.language || "pt-BR", false);
+    selector.addEventListener("change", (event) => applyLanguage(event.target.value));
+  </script>
 </body>
 </html>
