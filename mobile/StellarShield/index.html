@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#030815">
+  <meta name="description" content="Proteja o núcleo estelar, domine o escudo e sobreviva a ondas cada vez mais intensas em Stellar Shield.">
+  <title>Stellar Shield — Defesa espacial para Android</title>
+  <style>
+    :root {
+      --space: #030815;
+      --space-soft: #071426;
+      --blue: #48d8ff;
+      --blue-bright: #8ceaff;
+      --white: #f7fbff;
+      --muted: #94a9bd;
+      --line: rgba(116, 202, 231, .18);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--space);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .header {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 50%;
+      width: min(1180px, calc(100% - 48px));
+      height: 92px;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+
+    .brand strong { color: var(--blue); }
+    nav { display: flex; gap: 36px; }
+    nav a { color: #b8c7d6; font-size: 13px; transition: color .2s; }
+    nav a:hover, nav a:focus-visible { color: var(--blue); }
+
+    .mark {
+      position: relative;
+      display: inline-grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+    }
+
+    .mark::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border: 2px solid var(--blue);
+      border-left-color: transparent;
+      border-radius: 50%;
+      transform: rotate(-34deg);
+    }
+
+    .mark::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 14px 5px rgba(72,216,255,.58);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 760px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      align-items: center;
+      padding: 132px max(24px, calc((100vw - 1180px) / 2)) 76px;
+      background:
+        radial-gradient(circle at 77% 45%, rgba(17,110,159,.22), transparent 30%),
+        linear-gradient(120deg, #030815 20%, #061223 100%);
+    }
+
+    .stars {
+      position: absolute;
+      inset: 0;
+      opacity: .5;
+      background-image:
+        radial-gradient(circle, #fff 0 1px, transparent 1.4px),
+        radial-gradient(circle, #72ddff 0 1px, transparent 1.5px);
+      background-size: 97px 101px, 151px 143px;
+      background-position: 17px 29px, 66px 19px;
+      mask-image: linear-gradient(to right, transparent, #000 35%);
+    }
+
+    .hero-copy { position: relative; z-index: 2; max-width: 650px; }
+
+    .eyebrow, .index {
+      margin: 0 0 22px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow { display: flex; align-items: center; gap: 10px; }
+    .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--blue); }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(54px, 6vw, 91px);
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+
+    h1 em { color: var(--blue); font-style: normal; }
+
+    .lead {
+      max-width: 530px;
+      margin: 30px 0 0;
+      color: #b2c3d3;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      margin-top: 38px;
+    }
+
+    .button {
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 26px;
+      padding: 0 23px;
+      background: var(--blue);
+      color: #03101d;
+      box-shadow: 0 10px 34px rgba(72,216,255,.17);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: transform .2s, background .2s;
+    }
+
+    .button:hover { transform: translateY(-2px); background: var(--blue-bright); }
+    .status { color: var(--muted); font-size: 12px; }
+
+    .facts {
+      display: flex;
+      gap: 48px;
+      margin: 58px 0 0;
+      padding: 25px 0 0;
+      border-top: 1px solid var(--line);
+      list-style: none;
+    }
+
+    .facts li { display: flex; align-items: center; gap: 10px; }
+    .facts strong { color: var(--blue); font-size: 23px; }
+    .facts span { max-width: 80px; color: var(--muted); font-size: 10px; line-height: 1.35; text-transform: uppercase; }
+
+    .visual {
+      position: relative;
+      z-index: 1;
+      justify-self: center;
+      width: min(500px, 44vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+    }
+
+    .orbit {
+      position: absolute;
+      border: 1px solid rgba(90,211,249,.22);
+      border-radius: 50%;
+    }
+
+    .orbit.outer { inset: 4%; animation: rotate 24s linear infinite; }
+    .orbit.middle { inset: 21%; border-style: dashed; animation: rotate 18s linear infinite reverse; }
+
+    .shield {
+      position: absolute;
+      inset: 12%;
+      border: 9px solid transparent;
+      border-top-color: var(--blue);
+      border-right-color: var(--blue);
+      border-radius: 50%;
+      transform: rotate(-24deg);
+      filter: drop-shadow(0 0 9px rgba(72,216,255,.75));
+    }
+
+    .core {
+      width: 25%;
+      height: 25%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(158,237,255,.72);
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 0 8%, #62dfff 12%, #0c6290 40%, #071c34 68%);
+      box-shadow: 0 0 35px 11px rgba(72,216,255,.36), inset 0 0 20px rgba(255,255,255,.35);
+    }
+
+    .core::after {
+      content: "";
+      width: 42%;
+      height: 42%;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 20px 8px #71e7ff;
+    }
+
+    .shot {
+      position: absolute;
+      width: 7px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ffbd5a;
+      box-shadow: 0 0 12px #ff8a34;
+    }
+
+    .shot.one { top: 9%; left: 24%; transform: rotate(-43deg); }
+    .shot.two { right: 3%; top: 48%; transform: rotate(88deg); }
+    .shot.three { left: 16%; bottom: 12%; transform: rotate(42deg); }
+
+    .label {
+      position: absolute;
+      min-width: 132px;
+      padding: 9px 13px;
+      border-left: 2px solid var(--blue);
+      background: rgba(4,16,31,.75);
+    }
+
+    .label small { display: block; color: var(--muted); font-size: 8px; letter-spacing: .14em; }
+    .label strong { display: block; margin-top: 4px; color: var(--blue); font-size: 13px; }
+    .label.top { top: 16%; right: 0; }
+    .label.bottom { bottom: 18%; left: 0; }
+
+    .intro, .modes, .privacy, footer {
+      width: min(1180px, calc(100% - 48px));
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 40px;
+      padding: 120px 0 96px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(38px, 4.5vw, 64px);
+      line-height: 1.05;
+      letter-spacing: -.045em;
+    }
+
+    .intro .description { max-width: 690px; margin: 28px 0 0; color: var(--muted); font-size: 17px; line-height: 1.8; }
+
+    .features {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto 120px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .features article { min-height: 270px; padding: 38px 34px; border-right: 1px solid var(--line); }
+    .features article:last-child { border-right: 0; }
+    .features article > span { color: var(--blue); font-size: 11px; font-weight: 800; }
+    .features h3 { margin: 72px 0 14px; font-size: 21px; }
+    .features p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+
+    .modes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      padding: 100px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .mode-list { border-top: 1px solid var(--line); }
+    .mode-list div { display: flex; justify-content: space-between; gap: 24px; padding: 25px 0; border-bottom: 1px solid var(--line); }
+    .mode-list span { color: var(--muted); font-size: 13px; text-align: right; }
+
+    .privacy {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 100px;
+      padding: 55px;
+      background: linear-gradient(120deg, rgba(9,34,58,.95), rgba(7,23,41,.72));
+      border: 1px solid var(--line);
+    }
+
+    .privacy h2 { font-size: clamp(30px, 3vw, 45px); }
+    .privacy > p { margin: 0; color: #b1c4d5; font-size: 15px; line-height: 1.8; }
+
+    footer {
+      min-height: 110px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    @keyframes rotate { to { transform: rotate(360deg); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .orbit { animation: none !important; }
+    }
+
+    @media (max-width: 850px) {
+      nav { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 138px; text-align: center; }
+      .eyebrow, .actions, .facts { justify-content: center; }
+      .lead { margin-left: auto; margin-right: auto; }
+      .visual { width: min(480px, 86vw); margin-top: 40px; }
+      .intro, .modes, .privacy { grid-template-columns: 1fr; gap: 34px; }
+      .features { grid-template-columns: 1fr; }
+      .features article { min-height: auto; border-right: 0; border-bottom: 1px solid var(--line); }
+      .features h3 { margin-top: 35px; }
+    }
+
+    @media (max-width: 560px) {
+      .header { width: calc(100% - 32px); }
+      .hero { padding-left: 16px; padding-right: 16px; }
+      h1 { font-size: 48px; }
+      .actions { flex-direction: column; }
+      .facts { gap: 18px; }
+      .facts li { flex-direction: column; gap: 4px; }
+      .intro, .features, .modes, .privacy, footer { width: calc(100% - 32px); }
+      .intro { padding-top: 82px; }
+      .privacy { padding: 30px 24px; }
+      footer { padding: 28px 0; flex-direction: column; gap: 20px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="#inicio" aria-label="Stellar Shield — início"><span class="mark" aria-hidden="true"></span><span>STELLAR <strong>SHIELD</strong></span></a>
+    <nav aria-label="Navegação principal">
+      <a href="#jogo">O jogo</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#privacidade">Privacidade</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="stars" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="eyebrow">Defesa espacial • Android</p>
+        <h1>O núcleo é a<br><em>última esperança.</em></h1>
+        <p class="lead">Proteja a energia estelar, domine o escudo e sobreviva a ondas cada vez mais intensas.</p>
+        <div class="actions">
+          <a class="button" href="#jogo">Conheça o jogo <span aria-hidden="true">↓</span></a>
+          <span class="status">▶ &nbsp; Em breve na Google Play</span>
+        </div>
+        <ul class="facts" aria-label="Destaques">
+          <li><strong>3</strong><span>modos de jogo</span></li>
+          <li><strong>10</strong><span>idiomas</span></li>
+          <li><strong>∞</strong><span>ondas no infinito</span></li>
+        </ul>
+      </div>
+
+      <div class="visual" role="img" aria-label="Núcleo estelar protegido por um escudo orbital">
+        <div class="orbit outer"><i class="shot one"></i><i class="shot two"></i><i class="shot three"></i></div>
+        <div class="orbit middle"></div>
+        <div class="shield"></div>
+        <div class="core"></div>
+        <div class="label top"><small>ENERGIA DO NÚCLEO</small><strong>100%</strong></div>
+        <div class="label bottom"><small>ESCUDO</small><strong>ATIVO</strong></div>
+      </div>
+    </section>
+
+    <section class="intro" id="jogo">
+      <p class="index">01 / O JOGO</p>
+      <div>
+        <h2>Simples de aprender.<br>Difícil de abandonar.</h2>
+        <p class="description">Stellar Shield transforma um único gesto em uma batalha de precisão. Arraste para posicionar o escudo, bloqueie projéteis, crie combos e prepare-se para o Guardião do Vazio.</p>
+      </div>
+    </section>
+
+    <section class="features" id="recursos">
+      <article><span>01</span><h3>Defesa em tempo real</h3><p>Gire o escudo ao redor do núcleo, antecipe as trajetórias e bloqueie cada impacto.</p></article>
+      <article><span>02</span><h3>Evolução permanente</h3><p>Ganhe fragmentos, melhore o núcleo e desbloqueie novos estilos para sua defesa.</p></article>
+      <article><span>03</span><h3>Desafios variados</h3><p>Enfrente chefes, cumpra missões diárias e domine os modos Campanha, Infinito e Blitz.</p></article>
+    </section>
+
+    <section class="modes">
+      <div><p class="index">02 / SUA MISSÃO</p><h2>Escolha como<br>defender a galáxia.</h2></div>
+      <div class="mode-list">
+        <div><strong>Campanha</strong><span>Dez ondas até a vitória final</span></div>
+        <div><strong>Infinito</strong><span>Resista enquanto conseguir</span></div>
+        <div><strong>Blitz</strong><span>Noventa segundos de intensidade</span></div>
+      </div>
+    </section>
+
+    <section class="privacy" id="privacidade">
+      <div><p class="index">TRANSPARÊNCIA</p><h2>Você controla sua experiência.</h2></div>
+      <p>Música, efeitos e vibração são opcionais. Anúncios recompensados só aparecem quando você escolhe assistir, e as opções de consentimento podem ser revistas nas configurações do jogo.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#inicio"><span class="mark" aria-hidden="true"></span><span>STELLAR <strong>SHIELD</strong></span></a>
+    <p>© 2026 Stellar Shield. Todos os direitos reservados.</p>
+    <a href="#privacidade">Privacidade</a>
+  </footer>
+</body>
+</html>
