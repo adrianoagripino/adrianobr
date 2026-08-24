@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="Política de Privacidade do jogo Arrow Puzzle para Android.">
+  <title>Política de Privacidade — Arrow Puzzle</title>
+  <style>
+    :root {
+      --ink: #182b49;
+      --muted: #66758a;
+      --blue: #2787ed;
+      --blue-dark: #1265c2;
+      --blue-soft: #eaf4ff;
+      --line: #dce7f2;
+      --surface: #ffffff;
+      --background: #f4f8fc;
+      --warning: #a33b21;
+      --warning-bg: #fff1ec;
+      --shadow: 0 18px 50px rgba(24, 43, 73, .10);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(39, 135, 237, .12), transparent 22rem),
+        radial-gradient(circle at 90% 22%, rgba(115, 80, 230, .08), transparent 24rem),
+        var(--background);
+      font: 16px/1.68 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: var(--blue-dark); text-underline-offset: 3px; }
+    a:hover { color: var(--blue); }
+
+    .wrap {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header { padding: 64px 0 30px; }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 26px;
+      font-weight: 800;
+      letter-spacing: .03em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
+      color: white;
+      background: linear-gradient(145deg, #55b8ff, #2278e8);
+      box-shadow: 0 10px 24px rgba(39, 135, 237, .26);
+      font-size: 22px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--blue-dark);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 { line-height: 1.2; }
+    h1 { margin: 0; font-size: clamp(2.15rem, 7vw, 4rem); letter-spacing: -.04em; }
+    h2 { margin: 0 0 16px; font-size: clamp(1.25rem, 4vw, 1.65rem); }
+    h3 { margin: 24px 0 8px; font-size: 1.05rem; }
+
+    .lead {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .pill {
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.8);
+      color: var(--muted);
+      font-size: .88rem;
+      font-weight: 650;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 28px;
+      padding: 24px 0 70px;
+    }
+
+    nav {
+      position: sticky;
+      top: 20px;
+      align-self: start;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.9);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    nav strong { display: block; margin-bottom: 10px; font-size: .86rem; text-transform: uppercase; letter-spacing: .08em; }
+    nav a { display: block; padding: 7px 0; color: var(--muted); font-size: .91rem; text-decoration: none; }
+    nav a:hover { color: var(--blue-dark); }
+
+    article {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    section { padding: 30px 34px; border-bottom: 1px solid var(--line); scroll-margin-top: 24px; }
+    section:last-child { border-bottom: 0; }
+    section p:last-child, section ul:last-child { margin-bottom: 0; }
+    p { margin: 0 0 14px; }
+    ul { margin: 10px 0 16px; padding-left: 22px; }
+    li + li { margin-top: 7px; }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .summary div { padding: 16px; border-radius: 18px; background: var(--blue-soft); }
+    .summary strong { display: block; color: var(--blue-dark); }
+    .summary span { color: var(--muted); font-size: .88rem; }
+
+    .notice {
+      padding: 16px 18px;
+      border-left: 4px solid var(--blue);
+      border-radius: 4px 15px 15px 4px;
+      background: var(--blue-soft);
+    }
+
+    .pending {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 7px;
+      color: var(--warning);
+      background: var(--warning-bg);
+      font-weight: 750;
+    }
+
+    .service-list { display: grid; gap: 12px; }
+    .service {
+      padding: 17px 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fbfdff;
+    }
+    .service strong { display: block; margin-bottom: 4px; }
+
+    footer { padding: 0 0 46px; color: var(--muted); text-align: center; font-size: .88rem; }
+
+    @media (max-width: 780px) {
+      header { padding-top: 38px; }
+      main { grid-template-columns: 1fr; padding-top: 10px; }
+      nav { position: static; }
+      nav a { display: inline-block; margin-right: 14px; }
+      section { padding: 25px 22px; }
+      .summary { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      body { background: white; font-size: 11pt; }
+      .wrap { width: 100%; }
+      header { padding: 20px 0; }
+      nav { display: none; }
+      main { display: block; padding: 0; }
+      article { border: 0; box-shadow: none; }
+      section { padding: 18px 0; break-inside: avoid; }
+      a { color: inherit; word-break: break-all; }
+      footer { padding-top: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">→</span> Arrow Puzzle</div>
+    <p class="eyebrow">Privacidade e transparência</p>
+    <h1>Política de Privacidade</h1>
+    <p class="lead">Esta política explica como o jogo Arrow Puzzle processa informações no dispositivo e por meio dos serviços Google utilizados para anúncios e compras.</p>
+    <div class="meta">
+      <span class="pill">Última atualização: 23 de agosto de 2026</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <nav aria-label="Índice da política">
+      <strong>Nesta página</strong>
+      <a href="#visao-geral">1. Visão geral</a>
+      <a href="#dados-locais">2. Dados locais</a>
+      <a href="#publicidade">3. Publicidade</a>
+      <a href="#compras">4. Compras</a>
+      <a href="#compartilhamento">5. Compartilhamento</a>
+      <a href="#criancas">6. Crianças</a>
+      <a href="#seguranca">7. Segurança</a>
+      <a href="#direitos">8. Direitos</a>
+      <a href="#terceiros">9. Terceiros</a>
+      <a href="#alteracoes">10. Alterações</a>
+      <a href="#contato">11. Contato</a>
+    </nav>
+
+    <article>
+      <section id="visao-geral">
+        <h2>1. Visão geral</h2>
+        <p>O Arrow Puzzle é um jogo de quebra-cabeça para Android. Não é necessário criar uma conta para jogar e o aplicativo não possui servidor próprio para armazenar o progresso do jogador.</p>
+        <div class="summary" aria-label="Resumo da privacidade">
+          <div><strong>Sem cadastro</strong><span>Nenhuma conta ou login obrigatório.</span></div>
+          <div><strong>Progresso local</strong><span>Níveis e preferências ficam no dispositivo.</span></div>
+          <div><strong>Anúncios opcionais</strong><span>O jogador decide quando assistir.</span></div>
+        </div>
+      </section>
+
+      <section id="dados-locais">
+        <h2>2. Informações armazenadas no dispositivo</h2>
+        <p>Para permitir o funcionamento e a continuidade do jogo, o Arrow Puzzle pode armazenar localmente:</p>
+        <ul>
+          <li>níveis desbloqueados, estrelas e resultados;</li>
+          <li>moedas, vidas, boosters e itens disponíveis;</li>
+          <li>estado da partida em andamento;</li>
+          <li>preferências de som, vibração, contraste e privacidade;</li>
+          <li>prazos de recompensas e do intervalo de anúncios da loja.</li>
+        </ul>
+        <p>Essas informações não são enviadas a um servidor próprio do desenvolvedor. Elas podem ser removidas pelo usuário ao limpar os dados do aplicativo nas configurações do Android ou ao desinstalá-lo. A remoção pode apagar o progresso e os itens mantidos apenas localmente.</p>
+      </section>
+
+      <section id="publicidade">
+        <h2>3. Publicidade recompensada</h2>
+        <p>O Arrow Puzzle utiliza o Google AdMob para disponibilizar anúncios recompensados opcionais. O anúncio só é iniciado após uma ação do jogador, nas seguintes situações:</p>
+        <ul>
+          <li>recuperar uma vida após o Game Over;</li>
+          <li>receber moedas adicionais depois de concluir um nível;</li>
+          <li>obter a recompensa de moedas disponível na loja, sujeita ao intervalo informado no aplicativo.</li>
+        </ul>
+        <p>O jogo não utiliza anúncios em banner nem anúncios intersticiais obrigatórios durante a navegação.</p>
+        <h3>Dados que podem ser processados pelo Google Mobile Ads</h3>
+        <p>Ao usar recursos de publicidade, o SDK do Google Mobile Ads pode processar endereço IP para estimar uma localização geral, interações com o aplicativo e com anúncios, dados de diagnóstico e desempenho e identificadores do dispositivo, incluindo o identificador de publicidade. Esses dados podem ser usados para publicidade, análise, prevenção a fraude, segurança e conformidade.</p>
+        <p>Quando exigido, o aplicativo utiliza a plataforma Google User Messaging Platform (UMP) para solicitar consentimento e oferecer opções de privacidade. A disponibilidade e o formato dessas opções podem variar conforme a região e a legislação aplicável.</p>
+      </section>
+
+      <section id="compras">
+        <h2>4. Compras no aplicativo</h2>
+        <p>O Arrow Puzzle oferece pacotes opcionais de moedas e boosters. As transações são processadas pelo sistema de faturamento do Google Play.</p>
+        <p>O desenvolvedor não recebe nem armazena o número completo do cartão ou outros dados bancários utilizados no pagamento. O aplicativo pode receber informações técnicas necessárias para validar e concluir a compra, como o identificador do produto, o estado da transação e o token da compra. Registros técnicos podem ser mantidos localmente para impedir que a mesma compra consumível conceda itens mais de uma vez.</p>
+        <div class="notice">Reembolsos, formas de pagamento e o histórico da conta Google são administrados conforme as regras e ferramentas do Google Play.</div>
+      </section>
+
+      <section id="compartilhamento">
+        <h2>5. Compartilhamento iniciado pelo usuário</h2>
+        <p>O jogo pode oferecer um botão para compartilhar resultados. O compartilhamento ocorre somente quando o usuário o inicia e utiliza as opções nativas disponíveis no dispositivo. O Arrow Puzzle não publica conteúdo automaticamente nem compartilha contatos em nome do usuário.</p>
+      </section>
+
+      <section id="criancas">
+        <h2>6. Crianças e adolescentes</h2>
+        <p>O Arrow Puzzle não é direcionado a crianças menores de 13 anos. O desenvolvedor não busca coletar conscientemente dados pessoais de crianças. Caso um responsável acredite que uma criança tenha enviado informações indevidamente por meio de um serviço de terceiros, poderá entrar em contato para análise e orientação.</p>
+      </section>
+
+      <section id="seguranca">
+        <h2>7. Segurança, retenção e exclusão</h2>
+        <p>Os serviços Google utilizados pelo aplicativo empregam conexão criptografada para transmitir informações. Nenhum método de transmissão ou armazenamento é totalmente isento de riscos, mas são adotadas medidas compatíveis com os serviços utilizados.</p>
+        <p>O progresso local permanece no dispositivo até que os dados sejam apagados ou o aplicativo seja desinstalado. Informações processadas pelo Google Play e Google AdMob seguem os prazos e procedimentos definidos nas políticas desses serviços.</p>
+      </section>
+
+      <section id="direitos">
+        <h2>8. Direitos e escolhas do usuário</h2>
+        <p>Conforme a legislação aplicável, inclusive a Lei Geral de Proteção de Dados Pessoais — LGPD, o usuário pode solicitar informações sobre o tratamento de dados sob responsabilidade do desenvolvedor.</p>
+        <ul>
+          <li>As preferências de anúncios e consentimento podem ser revistas pela opção de privacidade disponível no jogo, quando aplicável.</li>
+          <li>O identificador de publicidade pode ser redefinido ou removido nas configurações de privacidade do Android.</li>
+          <li>Os dados locais podem ser eliminados limpando os dados do app ou desinstalando-o.</li>
+          <li>Solicitações adicionais podem ser enviadas ao contato informado ao final desta política.</li>
+        </ul>
+      </section>
+
+      <section id="terceiros">
+        <h2>9. Serviços e políticas de terceiros</h2>
+        <div class="service-list">
+          <div class="service">
+            <strong>Google Play e serviços Google</strong>
+            <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Política de Privacidade do Google</a>
+          </div>
+          <div class="service">
+            <strong>Google AdMob</strong>
+            <a href="https://policies.google.com/technologies/ads" rel="noopener noreferrer">Como o Google utiliza dados em publicidade</a>
+          </div>
+          <div class="service">
+            <strong>Controles de anúncios</strong>
+            <a href="https://myadcenter.google.com/" rel="noopener noreferrer">Minha Central de Anúncios do Google</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="alteracoes">
+        <h2>10. Alterações nesta política</h2>
+        <p>Esta política pode ser atualizada para refletir mudanças no jogo, nos serviços utilizados ou nas exigências legais. A versão vigente será identificada pela data apresentada no início da página. Alterações relevantes poderão ser comunicadas no aplicativo ou na página da loja.</p>
+      </section>
+
+      <section id="contato">
+        <h2>11. Contato</h2>
+        <p>Controlador/desenvolvedor: <strong>adrianobr</strong></p>
+        <p>E-mail para privacidade e suporte: <span class="pending">contact@adrianobr.com</span></p>
+        <p>Ao entrar em contato, informe que a solicitação se refere ao aplicativo <strong>Arrow Puzzle</strong>. Não envie senhas, números completos de cartão ou outros dados financeiros.</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="wrap">
+    © 2026 Arrow Puzzle
+  </footer>
+</body>
+</html>
