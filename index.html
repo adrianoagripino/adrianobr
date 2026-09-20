@@ -1,32 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet"  href="/style.css">
-  <title>Portfólio Pessoal - adrianobr</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>adrianobr — Apps e jogos para Android</title>
+  <meta name="description" content="Produtos digitais para jogar, criar e organizar. Conheça os aplicativos e jogos Android de adrianobr.">
+  <meta property="og:title" content="adrianobr — Apps e jogos para Android">
+  <meta property="og:description" content="Produtos digitais para jogar, criar e organizar.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="scripts/main.js" defer></script>
 </head>
 <body>
-  <!-- Inicio container Principal -->
-  <div class="container">
-    <!-- Inicio Nome e Foto Perfil  -->
-    <div class="cover-photo">
-      <img src="/images/perfil.jpg" class="profile">
-    </div>
-    <div class="profile-name">adrianobr</div>
-    <!-- Final Nome e Foto Perfil  -->
-    <p class="about">Desenvolvedor Mobile Android</p>
-    <p>Olá, sou apaixonado por tecnologia. Gosto de desafios e estou sempre procurando aprender coisas novas.</p><br>
-    <!-- Inicio Link's e Contato -->
-    <div class="social-media">
-      <a href="mailto:contato@adrianobr.com" target="_blank"><i class="fas fa-envelope"></i></a>
-      <!--<a href="/pdf/Curriculo.pdf" target="_blank"><i class="fas fa-file-pdf"></i></a>-->
-      <a href="https://github.com/adrianoagripino" target="_blank"><i class="fab fa-github-square"></i></a>
-      <a href="https://www.linkedin.com/in/adrianoagripino/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    </div>
-    <!-- Final Link's e Contato -->
-  </div>
-  <!-- Final container Principal -->
+  <a class="skip-link" href="#catalogo">Pular para os aplicativos</a>
+  <header class="site-header wrap" id="inicio">
+    <a class="brand" href="#inicio" aria-label="adrianobr, início">adriano<span>br</span></a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">☰</button>
+    <nav id="site-nav" aria-label="Navegação principal">
+      <a class="active" href="#inicio">Início</a>
+      <a href="#catalogo">Apps e jogos</a>
+      <a href="#sobre" data-about>Sobre</a>
+    </nav>
+    <p class="header-note">Jogar. Criar. Organizar.<br>Um Android mais divertido.</p>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">PORTFÓLIO ANDROID</p>
+        <h1 id="hero-title">Produtos digitais<br>para jogar, criar e organizar.</h1>
+        <p class="intro">Apps e jogos Android feitos com paixão para o seu dia a dia.<br>Pequenas ideias, grandes experiências.</p>
+      </div>
+      <div class="hero-art">
+        <img class="hero-illustration" src="images/art/android-hero.png" width="1536" height="1024" alt="Robô Android verde sentado com um tablet, ao lado de uma planta.">
+        <p class="hand-note note-top">Boas ideias<br>também rodam<br>no Android!<span aria-hidden="true">⤵</span></p>
+        <div class="benefits" aria-label="Jogue, crie e organize">
+          <div><span aria-hidden="true">✣</span><p><b>Jogue</b>novas aventuras</p></div>
+          <div><span aria-hidden="true">✎</span><p><b>Crie</b>suas ideias</p></div>
+          <div><span aria-hidden="true">✓</span><p><b>Organize</b>o seu dia</p></div>
+        </div>
+        <p class="hand-note note-bottom">Mais apps<br>para um dia<br>ainda melhor. :)</p>
+      </div>
+    </section>
+    <section class="catalog" id="catalogo" aria-labelledby="catalog-title">
+      <div class="catalog-heading">
+        <h2 id="catalog-title">Apps e jogos em destaque</h2>
+        <div class="filters" aria-label="Filtrar catálogo" hidden>
+          <button class="selected" data-filter="all" aria-pressed="true">Todos</button>
+          <button data-filter="game" aria-pressed="false">Jogos</button>
+          <button data-filter="app" aria-pressed="false">Aplicativos</button>
+        </div>
+      </div>
+      <div class="product-grid" id="product-grid">
+        <article class="product-card" data-category="game">
+          <img class="product-art" src="images/products/arrow-puzzle.png" alt="Ícone real do Arrow Puzzle" width="96" height="96">
+          <div class="product-copy"><h3>Arrow Puzzle</h3><p>Desafie sua lógica com<br>quebra-cabeças de setas.</p><a class="store-pending" href="https://play.google.com/store/apps/details?id=com.adrianobr.arrowpuzzle" target="_blank" rel="noopener noreferrer"><i class="play-icon" aria-hidden="true"></i>Ver no Google Play <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="product-card" data-category="game">
+          <img class="product-art" src="images/products/stellar-shield.png" alt="Ícone real do Stellar Shield" width="96" height="96">
+          <div class="product-copy"><h3>Stellar Shield</h3><p>Proteja o núcleo estelar<br>e supere cada desafio.</p><a class="store-pending" href="https://play.google.com/store/apps/details?id=com.adrianobr.stellar" target="_blank" rel="noopener noreferrer"><i class="play-icon" aria-hidden="true"></i>Ver no Google Play <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="product-card" data-category="app">
+          <img class="product-art" src="images/products/minhas-tarefas.png" alt="Ícone real do Minhas Tarefas" width="96" height="96">
+          <div class="product-copy"><h3>Minhas Tarefas</h3><p>Organize sua rotina de forma<br>simples e eficiente.</p><a class="store-pending" href="https://play.google.com/store/apps/details?id=com.adrianobr.minhastarefas" target="_blank" rel="noopener noreferrer"><i class="play-icon" aria-hidden="true"></i>Ver no Google Play <span aria-hidden="true">→</span></a></div>
+        </article>
+        <article class="product-card" data-category="game">
+          <img class="product-art" src="images/products/reverse-ring.png" alt="Ícone real do Reverse Ring" width="96" height="96">
+          <div class="product-copy"><h3>Reverse Ring</h3><p>Gire, inverta e desafie<br>os seus reflexos.</p><span class="coming-soon"><span aria-hidden="true">◷</span> Em breve</span></div>
+        </article>
+        <article class="product-card" data-category="game">
+          <img class="product-art" src="images/products/corre-capivara.png" alt="Imagem padrão do Corre, Capivara!" width="96" height="96">
+          <div class="product-copy"><h3>Corre, Capivara!</h3><p>Desvie dos obstáculos e<br>viva essa aventura brasileira!</p><span class="coming-soon"><span aria-hidden="true">◷</span> Em breve</span></div>
+        </article>
+        <article class="product-card" data-category="app">
+          <img class="product-art" src="images/products/beanlab.png" alt="Imagem padrão do BeanLab" width="96" height="96">
+          <div class="product-copy"><h3>BeanLab</h3><p>Explore métodos de preparo<br>e descubra o seu café.</p><span class="coming-soon"><span aria-hidden="true">◷</span> Em breve</span></div>
+        </article>
+        <article class="product-card" data-category="app">
+          <img class="product-art" src="images/products/minhas-notas.png" alt="Ícone real do Minhas Notas" width="96" height="96">
+          <div class="product-copy"><h3>Minhas Notas</h3><p>Anote ideias e organize<br>seus registros rapidamente.</p><a class="store-pending" href="https://play.google.com/store/apps/details?id=com.adrianobr.notes" target="_blank" rel="noopener noreferrer"><i class="play-icon" aria-hidden="true"></i>Ver no Google Play <span aria-hidden="true">→</span></a></div>
+        </article>
+      </div>
+      <p class="sr-only" id="catalog-count" aria-live="polite">6 projetos</p>
+      <noscript><p class="noscript-note">Todos os projetos estão disponíveis para consulta nesta página.</p></noscript>
+    </section>
+    <details class="about" id="sobre">
+      <summary>Sobre <span aria-hidden="true">＋</span></summary>
+      <div><h2>Feito com cuidado, por adrianobr.</h2><p>Desenvolvedor Android independente. Crio aplicativos e jogos para tornar o dia a dia mais prático e divertido.</p>Contato: <a href="mailto:contact@adrianobr.com">contact@adrianobr.com</a>
+      </div>
+    </details>
+  </main>
+  <footer class="site-footer wrap">
+    <a class="brand" href="#inicio">adriano<span>br</span></a>
+    <nav aria-label="Rodapé">
+      <p>&copy; Copyright <script>document.write(new Date().getFullYear());</script></span></p>
+      <a href="#inicio">Início</a><a href="#catalogo">Apps e jogos</a><a href="#sobre" data-about>Sobre</a>
+    </nav>
+    <a href="https://github.com/adrianoagripino" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    <a href="https://www.linkedin.com/in/adrianoagripino/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+  </footer>
 </body>
 </html>
