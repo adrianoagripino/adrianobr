@@ -1,4 +1,8 @@
+import { applyTranslations, resolveLocale } from './i18n.mjs';
+
 /* Progressive enhancement: the complete catalog also works without JavaScript. */
+const locale = resolveLocale(navigator.languages?.length ? navigator.languages : [navigator.language]);
+const copy = applyTranslations(document, locale);
 document.documentElement.classList.add('enhanced');
 const filters = document.querySelector('.filters');
 const cards = [...document.querySelectorAll('.product-card')];
@@ -13,7 +17,7 @@ filters.addEventListener('click', event => {
     item.classList.toggle('selected', selected);
     item.setAttribute('aria-pressed', String(selected));
   }
-  document.querySelector('#catalog-count').textContent = cards.filter(card => !card.hidden).length + ' projetos';
+  document.querySelector('#catalog-count').textContent = cards.filter(card => !card.hidden).length + ' ' + copy.projects;
 });
 const toggle = document.querySelector('[data-menu-toggle]');
 const nav = document.querySelector('#site-nav');
